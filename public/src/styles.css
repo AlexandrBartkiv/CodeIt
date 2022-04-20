@@ -1,0 +1,174 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Nunito', sans-serif;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(https://upload.wikimedia.org/wikipedia/commons/a/a1/Kamianets-Podilskyi_Old_Town_street.JPG);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://upload.wikimedia.org/wikipedia/commons/a/a1/Kamianets-Podilskyi_Old_Town_street.JPG);
+  background-size: cover;
+}
+
+main > h1 {
+  font-size: 3rem;
+  color: white;
+  font-weight: bold;
+}
+
+main > .form {
+  height: 300px;
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  background: rgba(0, 0, 0, 0.527);
+  border-radius: 10px;
+}
+
+main > .form > form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 60%;
+  padding: 1rem;
+}
+
+main > .form > form > input {
+  height: 30px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.2rem;
+}
+
+main > .form > form input::-webkit-input-placeholder {
+  color: black;
+}
+
+main > .form > form input:-ms-input-placeholder {
+  color: black;
+}
+
+main > .form > form input::-ms-input-placeholder {
+  color: black;
+}
+
+main > .form > form input::placeholder {
+  color: black;
+}
+
+main > .form > a {
+  color: white;
+  font-size: 1.2rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+main > .reg_form {
+  height: 500px;
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  background: rgba(0, 0, 0, 0.527);
+  border-radius: 10px;
+}
+
+main > .reg_form > form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 80%;
+  padding: 1rem;
+}
+
+main > .reg_form > form > input {
+  height: 30px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.2rem;
+}
+
+main > .reg_form > form input::-webkit-input-placeholder {
+  color: black;
+}
+
+main > .reg_form > form input:-ms-input-placeholder {
+  color: black;
+}
+
+main > .reg_form > form input::-ms-input-placeholder {
+  color: black;
+}
+
+main > .reg_form > form input::placeholder {
+  color: black;
+}
+
+main > .reg_form > .sub {
+  width: 100px;
+  height: 30px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: auto;
+  margin-top: 0;
+  color: #222222;
+  border-radius: 3px;
+  border-color: #b18500;
+  background-color: #ffcf31;
+}
+/*# sourceMappingURL=styles.css.map */
