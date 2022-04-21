@@ -105,6 +105,15 @@ main > .form > a {
   text-decoration: none;
 }
 
+main > .form .login {
+  margin: 0 auto 1rem auto;
+  width: 100px;
+  height: 30px;
+  font-size: 1rem;
+  border-color: #b18500;
+  background-color: #ffcf31;
+}
+
 main > .reg_form {
   height: 500px;
   width: 300px;
@@ -122,7 +131,7 @@ main > .reg_form {
   border-radius: 10px;
 }
 
-main > .reg_form > form {
+main > .reg_form .regForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -136,26 +145,54 @@ main > .reg_form > form {
   padding: 1rem;
 }
 
-main > .reg_form > form > input {
+main > .reg_form .regForm input {
   height: 30px;
   font-family: 'Nunito', sans-serif;
   font-size: 1.2rem;
 }
 
-main > .reg_form > form input::-webkit-input-placeholder {
+main > .reg_form .regForm input::-webkit-input-placeholder {
   color: black;
 }
 
-main > .reg_form > form input:-ms-input-placeholder {
+main > .reg_form .regForm input:-ms-input-placeholder {
   color: black;
 }
 
-main > .reg_form > form input::-ms-input-placeholder {
+main > .reg_form .regForm input::-ms-input-placeholder {
   color: black;
 }
 
-main > .reg_form > form input::placeholder {
+main > .reg_form .regForm input::placeholder {
   color: black;
+}
+
+main > .reg_form .regForm p {
+  margin: 0;
+  color: #ff6969;
+  position: absolute;
+}
+
+main > .reg_form .regForm > .check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main > .reg_form .regForm > .check > span {
+  color: white;
+}
+
+main > .reg_form .regForm > .check > input {
+  height: 20px;
+  width: 20px;
 }
 
 main > .reg_form > .sub {
@@ -170,5 +207,18 @@ main > .reg_form > .sub {
   border-radius: 3px;
   border-color: #b18500;
   background-color: #ffcf31;
+}
+
+main > .alertBox {
+  position: absolute;
+  top: -10rem;
+  width: 260px;
+  background: red;
+  padding: 1rem;
+}
+
+main .info {
+  color: white;
+  font-size: 1.5rem;
 }
 /*# sourceMappingURL=styles.css.map */

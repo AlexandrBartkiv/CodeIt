@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "express.js": "^1.0.0",
-    "js-datepicker": "^5.18.0",
     "knex": "^1.0.7",
     "nodemon": "^2.0.15",
     "pg": "^8.7.3"
