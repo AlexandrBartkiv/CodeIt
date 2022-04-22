@@ -1,9 +1,8 @@
 const lgin = document.querySelector('.login')
-console.log(lgin)
 
 
+//login button event
 lgin.addEventListener('click', ()=>{
-    console.log('f')
     fetch('/login-user',{
         method: 'post',
         headers: new Headers({'Content-Type':'application/json'}),
@@ -18,20 +17,20 @@ lgin.addEventListener('click', ()=>{
     })
 })
 
- const validateData = (data)=>{
+ const validateData = (data)=>{     // checking correct login data or not
      if(!data.name){
-         alertBox(data);
+         alertBox(data);     //allert if not correct
          console.log(data)
-     }else{
+     }else{    //save user info into storage
          sessionStorage.name = data.name;
          sessionStorage.email = data.email;
          sessionStorage.birthdate = data.birthdate;
          sessionStorage.country = data.country
-         location.href='/logged';
+         location.href='/logged';   //go user home
      }
  }
-
- const alertBox = (data) =>{
+//alertBox logic
+ const alertBox = (data) =>{   
      const alertConteiner = document.querySelector('.alertBox')
      const alertMsg = document.querySelector('.alertBox')
 
@@ -41,5 +40,5 @@ lgin.addEventListener('click', ()=>{
 
      setTimeout(()=>{
          alertConteiner.style.top = '-10rem'
-     }, 5000)
+     }, 3000)
  }

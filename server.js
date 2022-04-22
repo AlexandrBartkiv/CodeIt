@@ -19,22 +19,33 @@ const app = express();
 let initialPath = path.join(__dirname, "public");
 
 
-
+// make esier working with res.
 app.use(bodyParser.json());
+// point init.path
 app.use(express.static(initialPath));
-
+// get login page
 app.get('/',(req,res)=>{
     res.sendFile(path.join(initialPath, "index.html"))
 })
+// get to registration
 app.get('/registration', (req,res)=>{
     res.sendFile(path.join(initialPath, "registration.html"))
 })
+// taking our countries for autocomplete from db 
+app.get('/countries', (req,res)=>{
+	db('countries').select('countries')
+    .then(data =>{
+		console.log(data)
+		res.send(data)
+    })
+})
+// to home of logged user
 app.get('/logged', (req,res)=>{
     res.sendFile(path.join(initialPath, "logged.html"))
 })
-
+// regintrating new user
 app.post('/register-user', (req,res)=>{
-    const {username, email, password, login, date, country} = req.body;
+    const {username, email, password, login, date, country, timestamp} = req.body; //data from form and timestamp
     if(!username.length || !email.length || !password.length || !login.length || !date.length || !country.length){
         res.json('fill all the fields')
     }else{
@@ -45,8 +56,9 @@ app.post('/register-user', (req,res)=>{
             login:login,
             country:country,
             birthdate:date, 
+			timestamp:timestamp,
         })
-        .returning(['email','login'])
+        .returning(['email'])// for checkin is user exist
         .then(data =>{
             res.json(data[0])
             console.log(data) 
@@ -59,12 +71,13 @@ app.post('/register-user', (req,res)=>{
         })
     }
 })
-
+//login user
 app.post('/login-user',(req,res) =>{
     const {login, password} = req.body;
 console.log(req.body)
-    db.select('email','login','password','name','birthdate','country')
+    db.select('email','login','password','name','birthdate','country')//for showing user info
     .from('users')
+	// user can enter emei or login
     .where({
         email:login,
         password:password
@@ -87,13 +100,7 @@ app.listen(3000, (req,res)=>{
     console.log('port 3000')
 })
 
-
-
-
-
-
-
-
+//building db 
 const { Client } = require('pg');
 
 const client = new Client({
@@ -122,6 +129,7 @@ const execute = async (query) => {
         await client2.end();         // closes connection
     }
 };
+//querry sql
 const text = `
     CREATE TABLE IF NOT EXISTS users (
 	    "id" SERIAL NOT NULL PRIMARY KEY,
@@ -141,7 +149,7 @@ VALUES('{
 	"Afghanistan",
 	"Albania",
 	"Algeria",
-	American Samoa,
+	"American Samoa",
 	"Andorra",
 	"Angola",
 	"Anguilla",
@@ -387,8 +395,7 @@ VALUES('{
 	"Zambia",
 	"Zimbabwe",
 	"Åland Islands"
-}')
-    `;
+}')`;
 const createDatabase = async () => {
     try {
         await client.connect();                            // gets connection
