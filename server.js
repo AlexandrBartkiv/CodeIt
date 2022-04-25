@@ -140,6 +140,11 @@ const execute = async (query) => {
         await client2.end();         // closes connection
     }
 };
+execute(text).then(result => {
+	if (result) {
+		console.log('Table created');
+	}
+});
 //querry sql
 const text = `
     CREATE TABLE IF NOT EXISTS users (
