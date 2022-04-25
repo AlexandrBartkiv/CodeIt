@@ -96,7 +96,7 @@ console.log(req.body)
 })
 
 
-app.listen(3000, (req,res)=>{
+app.listen( process.env.PORT || 3000, (req,res)=>{
     console.log('port 3000')
 })
 
