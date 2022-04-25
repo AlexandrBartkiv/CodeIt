@@ -6,10 +6,11 @@ const knex = require('knex');
 const db = knex({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
-        user: 'postgres',
-        password: 'test',
-        database: 'test'
+        host: 'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
+        user: 'hcnwdierraovjo',
+        password: '2482add96796d11f32cfa9fd0e192f5589030919c1f5158cb2a650cfccf0e951',
+        database: 'da1r22k2jbg40m',
+		URI:'postgres://hcnwdierraovjo:2482add96796d11f32cfa9fd0e192f5589030919c1f5158cb2a650cfccf0e951@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/da1r22k2jbg40m0',
     }
 })
 
