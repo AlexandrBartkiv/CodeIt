@@ -420,16 +420,16 @@ VALUES('{
 //     }
 // };
 
-createDatabase().then((result) => {
-    if (result) {
-        console.log('Database created');
-        execute(text).then(result => {
-            if (result) {
-                console.log('Table created');
-            }
-        });
-    }
-});
+// createDatabase().then((result) => {
+//     if (result) {
+//         console.log('Database created');
+//         execute(text).then(result => {
+//             if (result) {
+//                 console.log('Table created');
+//             }
+//         });
+//     }
+// });
 
 
 
