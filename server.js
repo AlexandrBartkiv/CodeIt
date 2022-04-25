@@ -6,6 +6,9 @@ const knex = require('knex');
 const db = knex({
     client: 'pg',
     connection: {
+		ssl: {    /* <----- Add SSL option */
+    rejectUnauthorized: false,
+  },
         host: 'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
         user: 'hcnwdierraovjo',
         password: '2482add96796d11f32cfa9fd0e192f5589030919c1f5158cb2a650cfccf0e951',
@@ -105,19 +108,25 @@ app.listen( process.env.PORT || 3000, (req,res)=>{
 const { Client } = require('pg');
 
 const client = new Client({
+	ssl: {    /* <----- Add SSL option */
+    rejectUnauthorized: false,
+  },
     host: 'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
-        user: 'hcnwdierraovjo',
-        password: '2482add96796d11f32cfa9fd0e192f5589030919c1f5158cb2a650cfccf0e951',
-        database: 'da1r22k2jbg40m',
-		URI:'postgres://hcnwdierraovjo:2482add96796d11f32cfa9fd0e192f5589030919c1f5158cb2a650cfccf0e951@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/da1r22k2jbg40m0',
+	user: 'hcnwdierraovjo',
+	password: '2482add96796d11f32cfa9fd0e192f5589030919c1f5158cb2a650cfccf0e951',
+	database: 'da1r22k2jbg40m',
+	URI:'postgres://hcnwdierraovjo:2482add96796d11f32cfa9fd0e192f5589030919c1f5158cb2a650cfccf0e951@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/da1r22k2jbg40m0',
 });
 
 const client2 = new Client({
+	ssl: {    /* <----- Add SSL option */
+    rejectUnauthorized: false,
+  },
     host: 'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
-        user: 'hcnwdierraovjo',
-        password: '2482add96796d11f32cfa9fd0e192f5589030919c1f5158cb2a650cfccf0e951',
-        database: 'da1r22k2jbg40m',
-		URI:'postgres://hcnwdierraovjo:2482add96796d11f32cfa9fd0e192f5589030919c1f5158cb2a650cfccf0e951@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/da1r22k2jbg40m0',
+	user: 'hcnwdierraovjo',
+	password: '2482add96796d11f32cfa9fd0e192f5589030919c1f5158cb2a650cfccf0e951',
+	database: 'da1r22k2jbg40m',
+	URI:'postgres://hcnwdierraovjo:2482add96796d11f32cfa9fd0e192f5589030919c1f5158cb2a650cfccf0e951@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/da1r22k2jbg40m0',
 });
 const execute = async (query) => {
     try {
