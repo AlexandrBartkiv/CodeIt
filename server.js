@@ -128,24 +128,6 @@ const client2 = new Client({
 	database: 'da1r22k2jbg40m',
 	URI:'postgres://hcnwdierraovjo:2482add96796d11f32cfa9fd0e192f5589030919c1f5158cb2a650cfccf0e951@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/da1r22k2jbg40m0',
 });
-const execute = async (query) => {
-    try {
-        await client2.connect();     // gets connection
-        await client2.query(query);  // sends queries
-        return true;
-    } catch (error) {
-        console.error(error.stack);
-        return false;
-    } finally {
-        await client2.end();         // closes connection
-    }
-};
-execute(text).then(result => {
-	if (result) {
-		console.log('Table created');
-	}
-});
-//querry sql
 const text = `
     CREATE TABLE IF NOT EXISTS users (
 	    "id" SERIAL NOT NULL PRIMARY KEY,
@@ -412,6 +394,25 @@ VALUES('{
 	"Zimbabwe",
 	"Åland Islands"
 }')`;
+const execute = async (query) => {
+    try {
+        await client2.connect();     // gets connection
+        await client2.query(query);  // sends queries
+        return true;
+    } catch (error) {
+        console.error(error.stack);
+        return false;
+    } finally {
+        await client2.end();         // closes connection
+    }
+};
+execute(text).then(result => {
+	if (result) {
+		console.log('Table created');
+	}
+});
+//querry sql
+
 // const createDatabase = async () => {
 //     try {
 //         await client.connect();                            // gets connection
