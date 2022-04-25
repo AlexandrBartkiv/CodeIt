@@ -146,7 +146,7 @@ check.addEventListener('focus',(event)=>{
 
 //autocompleate for countries
 const autoCompleteJS = new autoComplete({
-    placeHolder: "Search for Food...",
+    placeHolder: "Country",
     data: {
         src:
         //get countries from db
