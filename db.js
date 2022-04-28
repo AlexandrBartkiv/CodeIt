@@ -285,33 +285,33 @@ const createTables = async (query) => {
     } 
 };
 
-const createDatabase = async () => {
-    try {                        
-        await client.query('CREATE DATABASE test'); //sending query for creating da
-        return true;
-    } catch (error) {
-        client2.connect()
-        console.error(error.stack);                 //catching error if db alredy exist
+// const createDatabase = async () => {
+//     try {                        
+//         await client.query('CREATE DATABASE test'); //sending query for creating da
+//         return true;
+//     } catch (error) {
+//         client2.connect()
+//         console.error(error.stack);                 //catching error if db alredy exist
         
-        return false;
-    }
-};
+//         return false;
+//     }
+// };
 
 
 
 //connections for creationd db and tables.
 //two, because if db exist will be created only tables and if not, will be created db and tables
-client.on('connect', () => {
-    console.log('connect')
-        createDatabase().then((result) => {
-            if (result) {
-                console.log('Database created');
-                client2.connect()
-            }
-        });
+// client.on('connect', () => {
+//     console.log('connect')
+//         createDatabase().then((result) => {
+//             if (result) {
+//                 console.log('Database created');
+//                 client2.connect()
+//             }
+//         });
     
     
-})
+// })
 client2.on('connect', () => {
     console.log('connect2')
     createTables(text).then(result => {
@@ -323,4 +323,4 @@ client2.on('connect', () => {
     
 })
 
-client.connect()
+client2.connect()
