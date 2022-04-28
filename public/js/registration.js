@@ -10,6 +10,7 @@ const check = document.querySelector('#check');
 const form = document.querySelector('.regForm') ;
 const stamp = Math.floor(Date.now() / 1000);
 
+//options for validator
 const constrains = {
     password: {
         presence: true,
@@ -28,40 +29,67 @@ const constrains = {
     name:{
         presence: true
     },
-    country:{
-        presence:true
-    },
+    // country:{
+    //     presence:true
+    // },
     date: {
         presence: true
     }
 }
 
+//fetching countries array from db
+fetch('/countries')
+.then(res =>res.json())
+.then(data=>results = data)
+.then(result => {
+    //inserting our array data to dropdown
+    var sel = document.getElementById("sel1");
+    var options = result.countries;
+    for(var i = 0; i < options.length; i++) {
+        var opt = options[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        sel.appendChild(el);
+    }
+})
+
+    
+
+
 //datepicker
 const picker = datepicker('.date')
+
+
 //validating and submiting form
+
 sbmt.addEventListener('click', ()=>{
-
+    console.log('click')
     var valid = validate(form,constrains)
-
+    var select = document.getElementById('sel1');
+    var value = select.options[select.selectedIndex].text;
+    console.log(value)
+    //checking inputs ang checkbox
     if(!valid && check.checked){
         fetch('/registration',{      //sending form data
             method: 'post',
             headers: new Headers({'Content-Type':'application/json'}),
-        body:   JSON.stringify({
-                username: username.value,
-                email: email.value, 
-                password: password.value,
-                date: date.value,
-                country: country.value,
-                login: login.value,
-                timestamp:stamp
-            })
+            body:   JSON.stringify({
+                    username: username.value,
+                    email: email.value, 
+                    password: password.value,
+                    date: date.value,
+                    country: value,
+                    login: login.value,
+                    timestamp:stamp
+                })
         })
         .then(res => res.json())
-        .then(data =>{           //login user after succesfull registration
-            if(data.email){
+        .then(data =>{     
+            console.log(data[0].email)      //login user after succesfull registration
+            if(data[0].email){
                 alert('register')
-                
+                    //auto login after succesfull user registration
                     setTimeout(function () {
                         fetch('/login',{
                             method: 'post',
@@ -75,7 +103,7 @@ sbmt.addEventListener('click', ()=>{
                         .then(data => {
                             console.log(data)
                             const validateData = (data)=>{
-                                
+                                    //saving user data to storage 
                                     sessionStorage.name = data.name;
                                     sessionStorage.email = data.email;
                                     sessionStorage.birthdate = data.birthdate;
@@ -113,11 +141,7 @@ sbmt.addEventListener('click', ()=>{
         }if(valid.date){
             date.style.background = '#ff2626';
             date.nextElementSibling.innerHTML = valid.date
-        }if(valid.country){
-            country.style.background = '#ff2626';
-            country.nextElementSibling.innerHTML = valid.country
-        }
-        
+        }  
     }
     
 
@@ -137,31 +161,42 @@ check.addEventListener('focus',(event)=>{
     event.target.previousElementSibling.style.color = 'white'
 })
 
+  
+    
+// document.addEventListener("DOMContentLoaded", () => {
+//     consolee.log('111')
+   
+//     }
+// )
+
+
+
+
 //autocompleate for countries
-const autoCompleteJS = new autoComplete({
-    placeHolder: "Country",
-    data: {
-        src:
-        //get countries from db
-        async(req,res)=>{
-            const countries = await fetch('/countries')
-            .then(res =>res.json())
-            .then(data=>results = data)
-            console.log(results.countries)
-            return(results.countries)
-        } 
-        ,
-        cache: true,
-    },
-    resultItem: {
-        highlight: true
-    },
-    events: {
-        input: {
-            selection: (event) => {
-                const selection = event.detail.selection.value;
-                autoCompleteJS.input.value = selection;
-            }
-        }
-    }
-});
+// const autoCompleteJS = new autoComplete({
+//     placeHolder: "Country",
+//     data: {
+//         src:
+//         //get countries from db
+//         async(req,res)=>{
+//             const countries = await fetch('/countries')
+//             .then(res =>res.json())
+//             .then(data=>results = data)
+//             console.log(results.countries)
+//             return(results.countries)
+//         } 
+//         ,
+//         cache: true,
+//     },
+//     resultItem: {
+//         highlight: true
+//     },
+//     events: {
+//         input: {
+//             selection: (event) => {
+//                 const selection = event.detail.selection.value;
+//                 autoCompleteJS.input.value = selection;
+//             }
+//         }
+//     }
+// });

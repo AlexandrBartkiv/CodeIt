@@ -5,6 +5,9 @@ const dbConfig2 = config.get('User.dbConfig2');
 const client = new pg.Client(dbConfig1)
 const client2 = new pg.Client(dbConfig2)
 
+
+
+// sql for building db
 const text = `
     CREATE TABLE IF NOT EXISTS users (
 	    "id" SERIAL NOT NULL PRIMARY KEY,
@@ -274,28 +277,30 @@ VALUES('{
 
 const createTables = async (query) => {
     try {
-
-        await client2.query(query);  
+        await client2.query(query);  //sending query for creating tables
         return true;
     } catch (error) {
-        console.error(error.stack);
+        console.error(error.stack);  //catch error
         return false;
     } 
 };
 
 const createDatabase = async () => {
     try {                        
-        await client.query('CREATE DATABASE test'); 
+        await client.query('CREATE DATABASE test'); //sending query for creating da
         return true;
     } catch (error) {
         client2.connect()
-        console.error(error.stack);
+        console.error(error.stack);                 //catching error if db alredy exist
         
         return false;
     }
 };
 
 
+
+//connections for creationd db and tables.
+//two, because if db exist will be created only tables and if not, will be created db and tables
 client.on('connect', () => {
     console.log('connect')
         createDatabase().then((result) => {
