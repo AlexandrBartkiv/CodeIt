@@ -7,7 +7,7 @@ const client2 = new pg.Client(dbConfig2)
 
 
 
-// sql for building db
+// sql building db
 const text = `
     CREATE TABLE IF NOT EXISTS users (
 	    "id" SERIAL NOT NULL PRIMARY KEY,
