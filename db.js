@@ -1,7 +1,7 @@
 const pg = require('pg')
 const config = require('config');
-const dbConfig1 = config.get('User.dbConfig1');
-const dbConfig2 = config.get('User.dbConfig2');
+const dbConfig1 = config.get('User.herokuDB');
+const dbConfig2 = config.get('User.herokuDB');
 const client = new pg.Client(dbConfig1)
 const client2 = new pg.Client(dbConfig2)
 
