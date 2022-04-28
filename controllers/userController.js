@@ -1,7 +1,7 @@
 // const { Client } = require('pg')
 const { Pool } = require('pg');
 const config = require('config');
-const dbConfig2 = config.get('User.herokuDB');
+const dbConfig2 = config.get('User.dbConfig2');
 
 
 const client = new Pool(dbConfig2)
