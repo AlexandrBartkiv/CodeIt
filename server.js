@@ -18,7 +18,7 @@ app.use(router) //use router for better code structure
 
 
 //port on ./config/config.js
-app.listen( servConfig || process.env.PORT, (req,res)=>{
+app.listen( process.env.PORT || servConfig , (req,res)=>{
     console.log('port')
 })
 
