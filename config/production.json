@@ -1,0 +1,29 @@
+{
+    "User":{
+        "appPort":{
+            "port":3000
+        },
+        "dbConfig1": {
+            "host": "127.0.0.1",
+            "user": "postgres",
+            "password": "test",
+            "port": 5432
+        },
+        "dbConfig2": {
+            "host": "127.0.0.1",
+            "user": "postgres",
+            "password": "test",
+            "database": "test",
+            "port": 5432
+        },
+        "herokuDB": {
+            "host": "ec2-99-80-170-190.eu-west-1.compute.amazonaws.com",
+            "user": "oonyfqaajnsagg",
+            "password": "oonyfqaajnsagg",
+            "database": "dbm0rdb87e38rh",
+            "port": 5432,
+            "URI":"postgres://oonyfqaajnsagg:f5f0f7e2a56918437eac8d718fbcc82d2137197fb9c278de6fefd4b95c160106@ec2-99-80-170-190.eu-west-1.compute.amazonaws.com:5432/dbm0rdb87e38rh"
+        }
+    }
+    
+}
