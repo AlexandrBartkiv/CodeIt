@@ -105,22 +105,31 @@ main{
                     width: 20px;
                 }
             }
-            ul{
-                background-color: white;
-                position: absolute;
-                width: 150px;
-                height: auto;
-                border-radius: 5px;
-                padding: 1.1rem;
-                li{
-                    list-style-type: none;
-                    &:hover{
-                        cursor: pointer;
-                        background-color: rgb(170, 170, 170);
-
-                    }
-                }
+            .select{
+                height: 30px;
+                font-family: 'Nunito', sans-serif;
+                font-size: 1.2rem;
+                width: 246.667px;
+                // >option{
+                //     width: 300px;
+                // }
             }
+            // ul{
+            //     background-color: white;
+            //     position: absolute;
+            //     width: 150px;
+            //     height: auto;
+            //     border-radius: 5px;
+            //     padding: 1.1rem;
+            //     li{
+            //         list-style-type: none;
+            //         &:hover{
+            //             cursor: pointer;
+            //             background-color: rgb(170, 170, 170);
+
+            //         }
+            //     }
+            // }
         }
         >.sub{
             width: 100px;

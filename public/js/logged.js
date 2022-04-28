@@ -16,7 +16,7 @@ window.onload = () =>{
         usermail.innerHTML = `Email: ${sessionStorage.email}`
     }
 }
-//log out button logic
+//log out button logics
 logOut.addEventListener('click', () => {
     sessionStorage.clear();
     location.reload();

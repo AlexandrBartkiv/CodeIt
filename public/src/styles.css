@@ -195,22 +195,11 @@ main > .reg_form .regForm > .check > input {
   width: 20px;
 }
 
-main > .reg_form .regForm ul {
-  background-color: white;
-  position: absolute;
-  width: 150px;
-  height: auto;
-  border-radius: 5px;
-  padding: 1.1rem;
-}
-
-main > .reg_form .regForm ul li {
-  list-style-type: none;
-}
-
-main > .reg_form .regForm ul li:hover {
-  cursor: pointer;
-  background-color: #aaaaaa;
+main > .reg_form .regForm .select {
+  height: 30px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.2rem;
+  width: 246.667px;
 }
 
 main > .reg_form > .sub {
