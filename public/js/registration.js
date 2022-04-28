@@ -1,3 +1,4 @@
+
 const username = document.querySelector('#name') || null;
 const login = document.querySelector('#login');
 const email =document.querySelector('#email');
@@ -9,7 +10,6 @@ const check = document.querySelector('#check');
 const form = document.querySelector('.regForm') ;
 const stamp = Math.floor(Date.now() / 1000);
 
-//form validators
 const constrains = {
     password: {
         presence: true,
@@ -35,27 +35,19 @@ const constrains = {
         presence: true
     }
 }
+
 //datepicker
-const picker = datepicker('.date', {
-
-    //wierd bug with toLocalDate format
-
-    // formatter: (input, date, instance) => {
-    //   const value = date.toLocaleDateString();
-    //   input.value = value 
-    // }
-})
-
+const picker = datepicker('.date')
 //validating and submiting form
 sbmt.addEventListener('click', ()=>{
 
     var valid = validate(form,constrains)
 
-    if(!valid){
-        fetch('/register-user',{      //sending form data
+    if(!valid && check.checked){
+        fetch('/registration',{      //sending form data
             method: 'post',
             headers: new Headers({'Content-Type':'application/json'}),
-            body: JSON.stringify({
+        body:   JSON.stringify({
                 username: username.value,
                 email: email.value, 
                 password: password.value,
@@ -71,7 +63,7 @@ sbmt.addEventListener('click', ()=>{
                 alert('register')
                 
                     setTimeout(function () {
-                        fetch('/login-user',{
+                        fetch('/login',{
                             method: 'post',
                             headers: new Headers({'Content-Type':'application/json'}),
                             body: JSON.stringify({
@@ -101,7 +93,11 @@ sbmt.addEventListener('click', ()=>{
             }
         })
         
-    }else{                           //show user what is wrong with data in reg. form
+    }else{      
+        if(!check.checked){
+            console.log('nonchek')
+            check.previousElementSibling.style.color='#ff2626';
+        }                     //show user what is wrong with data in reg. form
         if(valid.password){
             password.style.background = '#ff2626';
             password.nextElementSibling.innerHTML = valid.password
@@ -121,10 +117,7 @@ sbmt.addEventListener('click', ()=>{
             country.style.background = '#ff2626';
             country.nextElementSibling.innerHTML = valid.country
         }
-        if(!check.checked){
-            console.log('nonchek')
-            check.previousElementSibling.style.color='#ff2626';
-        }
+        
     }
     
 
@@ -150,10 +143,10 @@ const autoCompleteJS = new autoComplete({
     data: {
         src:
         //get countries from db
-        async()=>{
+        async(req,res)=>{
             const countries = await fetch('/countries')
             .then(res =>res.json())
-            .then(data=>results = data[0])
+            .then(data=>results = data)
             console.log(results.countries)
             return(results.countries)
         } 

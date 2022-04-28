@@ -10,6 +10,7 @@
   "author": "alexandr_bartkiv",
   "license": "ISC",
   "dependencies": {
+    "config": "^3.3.7",
     "express.js": "^1.0.0",
     "knex": "^1.0.7",
     "nodemon": "^2.0.15",

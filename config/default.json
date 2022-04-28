@@ -1,0 +1,21 @@
+{
+    "User":{
+        "appPort":{
+            "port":3000
+        },
+        "dbConfig1": {
+            "host": "127.0.0.1",
+            "user": "postgres",
+            "password": "test",
+            "port": 5432
+        },
+        "dbConfig2": {
+            "host": "127.0.0.1",
+            "user": "postgres",
+            "password": "test",
+            "database": "test",
+            "port": 5432
+        }
+    }
+    
+}

@@ -3,7 +3,7 @@ const lgin = document.querySelector('.login')
 
 //login button event
 lgin.addEventListener('click', ()=>{
-    fetch('/login-user',{
+    fetch('/login',{
         method: 'post',
         headers: new Headers({'Content-Type':'application/json'}),
         body: JSON.stringify({
